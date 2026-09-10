@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "e2e-verifier": {
+      "command": "uv",
+      "args": ["run", "e2e-verifier"],
+      "env": {
+        "E2E_ARTIFACT_DIR": "artifacts",
+        "E2E_ALLOWED_HOSTS": "localhost,127.0.0.1"
+      }
+    }
+  }
+}

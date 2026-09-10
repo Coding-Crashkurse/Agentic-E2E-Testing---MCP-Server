@@ -1,0 +1,14 @@
+{
+  "TICKET-101-coupon-no-discount": {
+    "site": "http://127.0.0.1:5175",
+    "control": "http://127.0.0.1:5173"
+  },
+  "TICKET-102-total-lags-behind": {
+    "site": "http://127.0.0.1:5175",
+    "control": "http://127.0.0.1:5173"
+  },
+  "TICKET-103-item-not-added": {
+    "site": "http://127.0.0.1:5175",
+    "control": "http://127.0.0.1:5173"
+  }
+}

@@ -1,0 +1,88 @@
+[project]
+name = "e2e-verifier"
+version = "0.1.0"
+description = "MCP server that reproduces and verifies website bug tickets with Playwright, producing annotated video and trace artifacts"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "fastmcp>=3.1,<4",
+  "playwright>=1.61,<2",
+  "pydantic>=2.11",
+  "pydantic-settings>=2.10",
+  "python-ulid>=3",
+  "jinja2>=3.1",
+]
+
+[project.scripts]
+e2e-verifier = "e2e_verifier.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/e2e_verifier"]
+
+[dependency-groups]
+dev = [
+  "pytest>=8",
+  "pytest-asyncio>=1",
+  "pytest-timeout>=2.3",
+  "mypy>=1.17",
+  "ruff>=0.13",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "D",
+  "CPY",
+  "COM812",
+  "ISC001",
+  "TD",
+  "FIX",
+  "FBT001",
+  "FBT002",
+  "EM101",
+  "EM102",
+  "TRY003",
+  "PLR0913",
+  "ANN401",
+  "TC001",
+  "TC002",
+  "TC003",
+  "BLE001",
+  "ASYNC230",
+  "RUF001",
+  "RUF002",
+  "RUF003",
+  "ARG002",
+  "ASYNC240",
+  "PLR0917",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "PLR2004", "ANN", "ARG", "SLF001", "S603", "S607", "INP001"]
+"bugreport/**" = ["T201", "INP001"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["e2e_verifier"]
+
+[tool.mypy]
+strict = true
+warn_unreachable = true
+disallow_any_generics = true
+plugins = ["pydantic.mypy"]
+python_version = "3.12"
+mypy_path = "src"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+timeout = 90
+testpaths = ["tests"]
+markers = ["integration: startet einen echten Browser"]

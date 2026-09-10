@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fixture App</title>
+    <style>
+      body { font-family: sans-serif; margin: 0; padding: 80px 24px 24px; }
+      #top-button { position: fixed; top: 6px; right: 12px; z-index: 5; }
+      [hidden] { display: none !important; }
+      .toast { padding: 8px 12px; background: #dcfce7; border: 1px solid #16a34a; display: inline-block; margin-top: 12px; }
+      #spacer { height: 1400px; }
+      form > * { margin-right: 8px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Fixture App</h1>
+      <nav><a href="settings.html" data-testid="nav-settings">Settings</a></nav>
+      <button type="button" id="top-button" data-testid="top-button">Top button</button>
+    </header>
+    <main>
+      <form id="settings-form" onsubmit="return false;">
+        <label for="name">Name</label>
+        <input id="name" name="name" placeholder="Your name" />
+        <button type="button" id="save" data-testid="save">Save</button>
+        <button type="button" id="delete" data-testid="delete">Delete</button>
+        <button type="button" id="boom" data-testid="boom">Trigger error</button>
+        <button type="button" id="confirm" data-testid="confirm">Confirm</button>
+        <label><input type="checkbox" id="newsletter" data-testid="newsletter" /> Newsletter</label>
+      </form>
+      <div id="toast" class="toast" role="status" data-testid="toast" hidden></div>
+      <div id="spacer"></div>
+      <button type="button" id="bottom" data-testid="bottom">Bottom button</button>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

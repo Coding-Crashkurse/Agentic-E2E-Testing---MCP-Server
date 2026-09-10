@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+artifacts/
+dist/
+*.egg-info/
+
+# a2a test output written by the testing agent (keep only the README)
+bugreport/a2a_test_output/*
+!bugreport/a2a_test_output/README.md

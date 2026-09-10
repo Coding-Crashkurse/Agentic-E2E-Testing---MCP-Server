@@ -1,0 +1,34 @@
+{
+  "coupon-noop": {
+    "symptom": "Coupon is accepted, but the discount is missing",
+    "cause": "The coupon is stored and shown as active (toast and chip), but the totals calculation never receives it."
+  },
+  "remove-off-by-one": {
+    "symptom": "The wrong item disappears from the cart",
+    "cause": "Removing deletes the entry at index + 1 instead of the selected index."
+  },
+  "qty-stale-total": {
+    "symptom": "Totals lag one click behind after a quantity change",
+    "cause": "Totals are calculated from the previous cart state instead of the new one."
+  },
+  "filter-ignored": {
+    "symptom": "\"In stock only\" is active, but the list still shows everything",
+    "cause": "The filter chip toggles its state, but the filter predicate never evaluates it."
+  },
+  "submit-disabled": {
+    "symptom": "\"Place order\" stays grey although every field is filled in",
+    "cause": "The email validation does not trim; the prefilled address from the customer import ends with a space."
+  },
+  "save-not-persisted": {
+    "symptom": "The saved address is gone after a reload",
+    "cause": "The save handler only updates React state; the write to localStorage is missing."
+  },
+  "double-submit": {
+    "symptom": "An order is sometimes placed twice",
+    "cause": "The order button is not locked while the request is pending; a double-click creates two orders."
+  },
+  "flaky-race": {
+    "symptom": "An item sometimes does not end up in the cart",
+    "cause": "Every third \"Add to cart\" click is dropped while the success toast still appears."
+  }
+}
